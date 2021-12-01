@@ -43,15 +43,17 @@ def ask_the_user(queries):
 
 
 # run the query and get the result from sql
-def questionAns(cursor, queries, letter):
+def displayAnswer(cursor, queries, letter):
     # execute the sql query
     cursor.execute(queries[letter][1])
-    result = cursor.fetchone()
-
+    result = cursor.fetchall()
+    print(result)
     # use the BeautifulTable library to print the table
     table = BeautifulTable()
+    # set the table column names to the sql table column names
+    table.columns.header = cursor.column_names
     for row in result:
-        table.append_row(row)
+        table.rows.append(row)
 
     print(table)
 
@@ -63,8 +65,19 @@ def main():
 
     # ask the user which question they want answered and return the output from sql
     queries = createQueries()
-    letter = ask_the_user(queries)
-    questionAns(cursor, queries, letter)
+    # continuously as the user if they want to answer a question
+    keep_asking = True
+    while keep_asking:
+        letter = ask_the_user(queries)
+        displayAnswer(cursor, queries, letter)
+        # ask the user if the want to continue
+        yORn = input('Do you want to answer another question? (y or n): ')
+        # input validation
+        while yORn != 'y' and yORn != 'n':
+            yORn = input('Invalid Input. Try again: ')
+        # if the user enters n, then the code stops
+        if yORn == 'n':
+            keep_asking = False
 
     connection.commit()
     cursor.close()
