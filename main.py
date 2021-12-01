@@ -147,7 +147,8 @@ def insertDataSummer(cursor, input_file):
         athletes = []
         for row in athlete:
             data = ''
-            data += '"' + str(athleteID) + '", "' + row[0] + '",' + '"' + row[1] + '",' + '"' + row[2] + '"'
+            # Some names had nicknames (JEROME, Henry Winston "Harry") replaced the " to a ' so sql would work
+            data += '"' + str(athleteID) + '", "' + row[0].replace('\"', "'") + '",' + '"' + row[1] + '",' + '"' + row[2] + '"'
             sql = "INSERT INTO Summer_Athlete VALUES (" + data + ");"
             cursor.execute(sql)
             athleteID += 1
