@@ -1,2 +1,10 @@
 a,Top ten Athletes who the most medals for the Summer Games
 b,How many medals each country won per Olympic game
+c,The number of male gold medalists for The USA in both the Winter and Summer Olympics
+d,The number of female silver medals from the United Kingdom in both the Winter and Summer Olympics
+e,The event the USA has won the most Summer Olympic gold medals
+f,The event the USA has won the most Winter Olympic gold medals
+g,The average number of athletes from each country
+h,Athletes who competed in both Winter and Summer Olympics
+i,Athletes who won more than one medal at one Summer Olympics
+j,Athletes who won gold in the same event in the Winter Games and what years they did it

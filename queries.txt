@@ -1,2 +1,0 @@
-SELECT Summer_Athlete.name, COUNT(*) as Number_of_Medals FROM Summer_Medalists NATURAL JOIN Summer_Athlete GROUP BY Summer_Athlete.name HAVING COUNT(*) > 1 ORDER BY Number_of_Medals DESC LIMIT 10;
-SELECT Winter_Game.year, Winter_Athlete.country, COUNT(*) as Number_of_Medals FROM Winter_Medalists NATURAL JOIN Winter_Athlete NATURAL JOIN Winter_Game GROUP BY Winter_Game.year, Winter_Athlete.country ORDER BY Winter_Game.year, Number_of_Medals DESC;
