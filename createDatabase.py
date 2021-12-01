@@ -149,7 +149,7 @@ def insertDataSummer(cursor, input_file):
 
 
 def main():
-    DB_NAME = 'OlympicMedals'
+    DB_NAME = 'Olympics'
     cursor, connection = connectToMySQL()
     cursor.execute('DROP DATABASE IF EXISTS ' + DB_NAME + ';')  # drops the database before it is created
     createDatabase(cursor, DB_NAME)  # Creates the database
